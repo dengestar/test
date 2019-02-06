@@ -87,9 +87,8 @@ function detectLevel() {
         console.log("Произошла ошибка");
     }
 }
-
 detectLevel();
-    
+
 function checkSaving() {
     if (appData.savings == true) {
         let save = +prompt("Какова сумма накоплений?"),
@@ -103,16 +102,22 @@ function checkSaving() {
 checkSaving();
 
 function chooseOptExpenses() {
-    for (let i = 0; i < 3; i++) {
-        a = i + 1;
-        b = prompt("Статья необязательных расходов?", "");
-        if (typeof(b) === 'string' && typeof(b) != null && b != '' && b.length < 50) {
+    for ( i = 0; i < 3; i++ ) {
+        console.log("Я здесь");
+        console.log(i);
+        let a = i + 1;
+        let b = prompt("Статья необязательных расходов?");
+
+        if ( (typeof(a))=== 'string' && (typeof(a)) !=null && a != '' && a.length < 50) {
             console.log("done");
             appData.optionalExpenses[a] = b;
-        } else {
+        } else { 
+            // продумать механизм, чтобы возвращаться обратно,
+            // дописать и вернуться к вопросу заново 
             i = i - 1;
+        // continue;
         }
     }
 }
-
+console.log("Я перед вызовом функции");
 chooseOptExpenses();
